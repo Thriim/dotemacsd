@@ -1,11 +1,6 @@
 [submodule "lisp/emacs-application-framework"]
 	path = lisp/emacs-application-framework
 	url = https://github.com/emacs-eaf/emacs-application-framework.git
-[submodule "emacs"]
-	path = emacs
-	url = https://github.com/emacs-mirror/emacs.git
-	branch = master
-	update = merge
 [submodule "lisp/combobulate"]
 	path = lisp/combobulate
 	url = https://github.com/mickeynp/combobulate.git

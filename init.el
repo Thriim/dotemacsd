@@ -234,13 +234,13 @@ Give windows a 'purpose' to prevent them from being populated by buffers that do
   :type 'boolean
   :tag "󰔎 Dark/Light")
 
-(defcustom pokemacs-dark-theme 'doom-solarized-dark
+(defcustom pokemacs-dark-theme 'doom-nord
   "Dark theme to load."
   :group 'pokemacs-appearance
   :type 'symbol
   :tag "󰖔 Dark Theme")
 
-(defcustom pokemacs-light-theme 'doom-solarized-light
+(defcustom pokemacs-light-theme 'doom-nord-light
   "Light theme to load."
   :group 'pokemacs-appearance
   :type 'symbol
@@ -562,6 +562,7 @@ Specify the chosen language used by spell checking tools in pokemacs."
 (add-to-list 'auto-mode-alist '("\\.in\\'" . text-mode))
 (add-to-list 'auto-mode-alist '("\\.out\\'" . text-mode))
 (add-to-list 'auto-mode-alist '("\\.args\\'" . text-mode))
+(add-to-list 'auto-mode-alist '("\\.wast\\'" . lisp-mode))
 
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
@@ -1938,9 +1939,12 @@ debian, and derivatives). On most it's 'fd'.")
          (clojurec-mode-hook . lsp-deferred)
          (elm-mode . lsp-deferred)
          (fsharp-mode . lsp-deferred)
+         (js-mode . lsp-deferred)
+         (js-ts-mode . lsp-deferred)
          (kotlin-mode . lsp-deferred)
          (enh-ruby-mode . lsp-deferred)
          (rustic-mode . lsp-deferred)
+         (typescript-ts-mode . lsp-deferred)
          (tuareg-mode . lsp-deferred))
   :general
   (:keymaps 'lsp-mode-map
@@ -2803,7 +2807,7 @@ DIR and GIVEN-INITIAL match the method signature of `consult-wrapper'."
   (corfu-cycle t)                ;; Enable cycling for `corfu-next/previous'
   (corfu-auto t)                 ;; Enable auto completion
   (corfu-quit-no-match t)
-  (corfu-auto-prefix 1)
+  (corfu-auto-prefix 2)
   (corfu-auto-delay 0)
   (corfu-separator ?\s)
   ;; (corfu-quit-at-boundary nil)
@@ -4263,7 +4267,6 @@ DIR and GIVEN-INITIAL match the method signature of `consult-wrapper'."
               "C-c c" 'seeing-is-believing-clear)))
 
 (when use-rust
-
   (use-package rust-mode
     :demand t
     :ensure t
@@ -4384,6 +4387,10 @@ DIR and GIVEN-INITIAL match the method signature of `consult-wrapper'."
     ;; (defun my/rust-mode-outline-regexp-setup ()
     ;;   (setq-local outline-regexp "///[;]\\{1,8\\}[^ \t]"))
     (message "`rustic' loaded")))
+
+(use-package csv-mode
+  :demand t
+  :ensure t)
 
 (when use-sicp
   (use-package sicp))
