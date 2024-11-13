@@ -75,7 +75,7 @@ Read the [[file:manual.org][manual]], you won't regret it.
   #+end_src
 
   #+begin_src sh
-    export CC="gcc-13"
+    export CC="gcc-14"
   #+end_src
 
 - If you feel confident and better than me at installing emacs from scratch, don't hesitate to tell me where I'm wrong, I always love to learn
